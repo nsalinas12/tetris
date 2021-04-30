@@ -1,0 +1,35 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: orange;
+}
+
+.container {}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(10, min-content);
+    grid-template-rows: repeat(20, min-content);
+}
+
+.cell-item {
+    width: 16px;
+    height: 16px;
+    background-color: aliceblue;
+    border: 1px solid gray;
+}
+
+.cell-item-filled {
+    background-color: green;
+}
+
+.testBoard {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 24px;
+}
+
+.testBoard-item {
+    margin-bottom: 12px;
+}
