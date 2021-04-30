@@ -1,25 +1,27 @@
+let gameboard;
+
 window.addEventListener("DOMContentLoaded", () => {
-  initGrid();
+  
+  gameboard = new Board(10, 20);
+  playGame();
+  
 });
 
 
-initGrid = () => {
-  let ref = document.getElementById('grid');
+playGame = () => {
 
-  let allSquares = [];
+  gameboard.startGame();
+  setInterval(runGameplay, 1200);
 
-  let numCols = 10;
-  let numRows = 20;
+}
 
-  for(j = 0; j< numRows; j++){
-    for(i = 0; i< numCols; i++){
-      let newSquare = new Cell(i, j);
-      allSquares.push(newSquare);
-    }
+runGameplay = () => {
+  let currentBlock = gameboard.getCurrentBlock();
+  if( currentBlock.checkIsMoveable() ){
+    currentBlock.moveDown();
+    currentBlock.updateHTML();
+  } else {
+    currentBlock.destroy();
+    gameboard.generateNewBlock();
   }
-
-  allSquares.map((cell) => {
-    let squareAsHTML = cell.asHTML();
-    ref.appendChild(squareAsHTML);
-  });
 }
