@@ -2,9 +2,13 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: orange;
+    margin: 0;
+    overscroll-behavior: none;
 }
 
-.container {}
+.container {
+    padding: 24px;
+}
 
 #grid {
     display: grid;
